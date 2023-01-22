@@ -19,7 +19,7 @@ function printHighScore() {
 
 }
 
-function clearHighScore {
+function clearHighScore() {
 
 }
 
