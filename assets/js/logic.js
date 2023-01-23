@@ -1,5 +1,6 @@
+// Set quiz rules
 let currentQuestionIndex = 0;
-let time = questions.length * 15;
+let time = questions.length * 10;
 let timerID;
 
 // HTML elements;
@@ -16,6 +17,7 @@ let feedback = document.getElementById('feedback');
 let sfxCorrect = new Audio("assets/sfx/correct.wav");
 let sfxIncorrect = new Audio("assets/sfx/incorrect.wav");
 
+// Start of quiz
 function getQuestion(){
  let currentQuestion = questions[currentQuestionIndex];
  let titleElement = document.getElementById("question-title");
@@ -60,7 +62,7 @@ if(currentQuestionIndex === questions.length){
 }
 }
 
-
+// Clock timer countdown 
 
 function countDown(){
  time--;
@@ -90,6 +92,7 @@ function quizEnd(){
  questionTitle.setAttribute("class", "hide");
 }
 
+//Highscore table
 
 function saveHighScore(){
 let initials = initialElement.value.trim();
