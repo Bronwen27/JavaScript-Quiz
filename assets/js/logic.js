@@ -20,8 +20,8 @@ let sfxIncorrect = new Audio("assets/sfx/incorrect.wav");
 // Start of quiz
 function getQuestion(){
  let currentQuestion = questions[currentQuestionIndex];
- let titleElement = document.getElementById("question-title");
- titleElement.textContent = currentQuestion.title;
+ let questionTitle = document.getElementById("question-title");
+ questionTitle.textContent = currentQuestion.title;
  choicesElement.innerHTML = "";
  currentQuestion.choices.forEach(function(choices, i) {
     let choiceButton = document.createElement("button");
