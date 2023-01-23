@@ -28,7 +28,8 @@ In this project I have used HTML, CSS and JavaScript to create a quiz for studen
 
 ## Usage
 
-![Screenshot of code relating to quiz console](https://myoctocat.com/assets/images/base-octocat.svg)
+![Screenshot of code relating to quiz questions](..assets/images/Screenshot1.png)
+![Screenshot of code relating to highscores board](..assets/images/Screenshot2.png)
 
 ### License
 
