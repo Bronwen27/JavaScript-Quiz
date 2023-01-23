@@ -4,8 +4,8 @@ let timerID;
 
 // HTML elements;
 let questionTitle = document.getElementById('questions');
-let timer = document.getElementById('timer');
-let questionChoices = document.getElementById('choices');
+let timerElement = document.getElementById('time');
+let choicesElement = document.getElementById('choices');
 let startScreen = document.getElementById('start-screen');
 let startButton = document.getElementById('start');
 let initialElement = document.getElementById("initials");
@@ -17,15 +17,15 @@ let sfxCorrect = new Audio("assets/sfx/correct.wav");
 let sfxIncorrect = new Audio("assets/sfx/incorrect.wav");
 
 function getQuestion(){
- let currentQuestion = question[currentQuestionIndex];
+ let currentQuestion = questions[currentQuestionIndex];
  let titleElement = document.getElementById("question-title");
  titleElement.textContent = currentQuestion.title;
- questionChoices.innerHTML = "";
- currentQuestion.choices.forEach(function(choice, index) {
+ choicesElement.innerHTML = "";
+ currentQuestion.choices.forEach(function(choices, i) {
     let choiceButton = document.createElement("button");
     choiceButton.setAttribute("class", "choice");
-    choiceButton.setAttribute("value", choice);
-    choiceButton.textContent = `${i + 1} . ${choice}`
+    choiceButton.setAttribute("value", choices);
+    choiceButton.textContent = `${i + 1} . ${choices}`
     choiceButton.addEventListener("click", questionClick)
     choicesElement.append(choiceButton);
  })
@@ -33,12 +33,13 @@ function getQuestion(){
 
 function questionClick(){
 if(this.value !== questions[currentQuestionIndex].answer) {
-    time -= 15;
+    time -= 10;
 if(time < 0) {
     time = 0;
 }
 
-timer.textContent = time;
+timerElement.textContent = time;
+
     sfxIncorrect.play();
     feedback.textContent = "Incorrect"
 } else {
@@ -63,9 +64,9 @@ if(currentQuestionIndex === questions.length){
 
 function countDown(){
  time--;
- timer.textContent = time;
+ timerElement.textContent = time;
  if(time <= 0){
-    quizEnd()
+    quizEnd();
  }
 }
 
@@ -74,9 +75,9 @@ let startQuiz = document.getElementById("start-screen");
 startQuiz.setAttribute("class", "hide");
 
 questionTitle.removeAttribute("class");
-timerID = setInterval(clockTick, 1000)
+timerID = setInterval(countDown, 1000)
 
-timer.textContent = time;
+timerElement.textContent = time;
 getQuestion();
 }
 
@@ -94,7 +95,7 @@ function saveHighScore(){
 let initials = initialElement.value.trim();
 console.log(initials);
 
-if(initial !== "") {
+if(initials !== "") {
     let highScores = JSON.parse(localStorage.getItem("highscores")) || [];
     let newScore = {
         score: time,
@@ -115,53 +116,9 @@ if(event.key === "Enter") {
 
 startButton.addEventListener('click', startQuiz);
 
-/*function (evt){
-    evt.preventDefault()
-    startScreen.setAttribute('class', 'hide')
-    displayQuestion(0)
-})
-*/
+
 
 submitButton.addEventListener("click", saveHighScore);
 
 initialElement.addEventListener("keyup", checkForEnter);
 
-/*function displayQuestion(questionIndex){
-}
-
-function timerLogic() {
-    var time
-    if (localStorage.getItem('timer')) {
-        time = localStorage.getItem('timer')
-    }
-    else {
-        time = 100
-    }
-}
-
-var countdown = setInterval(function() {
-    timeSubstractionFunction = 1000)
-}
-
-function timeSubstractionFunction(time = 1) {
-    if (time === 0) {
-        clearInterval(countdown)
-    }
-    localStorage.setItem('timer', time)
-    timer.textContent = localStorage.getItem('timer')
-
-    if ((timerLargeSubtraction = 'big')) {
-        timer = timer - 10
-        timerLargeSubtraction = 'none'
-    }
-}
-
-// variable for quiz progression
-let currentQuestionIndex = 0;
-let time = questions.length * 15;
-let timerID;
-
-//HTML elements
-let questionElement
-
-*/
