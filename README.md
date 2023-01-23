@@ -22,9 +22,11 @@ In this project I have used HTML, CSS and JavaScript to create a quiz for studen
   
 ## Deployed Link:
 
+https://bronwen27.github.io/JavaScript-Quiz/
 
 ## Repository Link:
 
+https://github.com/Bronwen27/JavaScript-Quiz
 
 ## Usage
 
