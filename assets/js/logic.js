@@ -2,6 +2,7 @@ let currentQuestionIndex = 0;
 let time = questions.length * 15;
 let timerID;
 
+// HTML elements;
 let questionTitle = document.getElementById('questions');
 let timer = document.getElementById('timer');
 let questionChoices = document.getElementById('choices');
