@@ -47,6 +47,18 @@ var questions = [
         "question": "when is 'null' used in JavaScript?",
         "options": ["When a variable has been declared but has not yet been assigned a value", "When you would like to comment out a section of code", "It is an object that can be assigned to a variable as a representation of no value"],
         "answer": "It is an object that can be assigned to a variable as a representation of no value"
+    },
+
+    {
+        "question": "Conditional keywords are:",
+        "options": ["while", "for", "if", "until"],
+        "answer": "if"
+    },
+
+    {
+        "question": "What is a 'NaN' in JavaScript?",
+        "options": ["Non analogue Number", "The garndparent of a child element", "Not a Number"],
+        "answer": "Not a Number"
     }
 
 
