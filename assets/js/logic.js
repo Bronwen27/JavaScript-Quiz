@@ -91,6 +91,7 @@ function quizEnd(){
 
 function saveHighScore(){
 let initials = initialElement.value.trim();
+console.log(initials);
 
 if(initial !== "") {
     let highScores = JSON.parse(localStorage.getItem("highscores")) || [];
